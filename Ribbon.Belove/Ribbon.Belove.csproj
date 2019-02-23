@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <ApplicationIcon />
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <MonoGameContentReference Include="**\*.mgcb" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MicroResolver" Version="2.3.5" />
+    <PackageReference Include="SharpYaml" Version="1.6.4" />
+    <PackageReference Include="System.IO.Abstractions" Version="2.1.0.256" />
+  </ItemGroup>
+
+</Project>
