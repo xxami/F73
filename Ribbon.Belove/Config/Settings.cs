@@ -4,16 +4,18 @@ namespace Ribbon.Belove.Config
 
     public class Settings : ISettings
     {
-        private const string SettingsFile = "settings.yaml";
+        public RootSetting Root { get; set; }
+
+        public Settings(IConfigReader reader, string settingsFile)
+        {
+            Root = reader.Read<RootSetting>(settingsFile);
+        }
+    }
+
+    public class RootSetting
+    {
         public string ProfileName { get; set; }
         public Resolution Resolution { get; set; }
-
-        public Settings(IConfigReader reader)
-        {
-            var settings = reader.Read<Settings>(SettingsFile);
-            ProfileName = settings.ProfileName;
-            Resolution = settings.Resolution;
-        }
     }
 
     public class Resolution

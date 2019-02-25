@@ -1,4 +1,5 @@
 
+using System.Net.Mime;
 using System.Reflection.Metadata;
 
 namespace Ribbon.Belove.Config.Reader
@@ -21,10 +22,11 @@ namespace Ribbon.Belove.Config.Reader
         {
             using (var input = _iosys.File.OpenRead(configName))
             {
-                var serializer = new Serializer();
+                var serializer = new Serializer(new SerializerSettings { NamingConvention = new FlatNamingConvention() });
                 using (var reader = new StreamReader(input))
                 {
-                    var config = serializer.Deserialize<T>(reader);
+                    var text = reader.ReadToEnd();
+                    var config = serializer.Deserialize<T>(text);
                     return config;
                 }
             }

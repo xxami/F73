@@ -4,7 +4,6 @@ namespace Ribbon.Belove.Config
 
     public interface ISettings
     {
-        string ProfileName { get; set; }
-        Resolution Resolution { get; set; }
+        RootSetting Root { get; set; }
     }
 }

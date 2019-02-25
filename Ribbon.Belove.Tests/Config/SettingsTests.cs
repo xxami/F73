@@ -22,9 +22,9 @@ namespace Ribbon.Belove.Tests.Config
                 .Returns(new MemoryStream(Encoding.UTF8.GetBytes(fileData)));
 
             var reader = new ConfigReader(fs);
-            var settings = new Settings(reader);
+            var settings = new Settings(reader, "settings.yaml").Root;
 
-            settings.ProfileName.ShouldBe("test");
+            settings.ProfileName.ShouldBe("bla");
             settings.Resolution.X.ShouldBe(1280);
             settings.Resolution.Y.ShouldBe(720);
         }
